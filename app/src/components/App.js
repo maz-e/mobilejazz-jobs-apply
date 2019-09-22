@@ -11,9 +11,9 @@ function App({history}) {
 
     async function handleApply(name, email, about, urls, teams) {
         try {
-            await logic.applyToJob(name, email, about, urls, teams)
+            let message = await logic.applyToJob(name, email, about, urls, teams)
             history.push('/')
-            setMsg('Job applied!')
+            setMsg(message)
         } catch (error) {
             setMsg(error.message)
         }

@@ -3,6 +3,8 @@ import validate from '../common/validate'
 import { LogicError } from '../common/errors'
 
 const logic = {
+    __test__: true,
+
     applyToJob(name, email, about, urls, teams) {
         validate.arguments([
             { name: 'name', value: name, type: String, notEmpty: true },
@@ -17,7 +19,13 @@ const logic = {
 
         return (async () => {
             try {
-                await apiJobs.applyToJob(name, email, about, urls, teams)
+                debugger
+                if (this.__test__) {
+                    return 'This is just a test!'
+                } else {
+                    await apiJobs.applyToJob(name, email, about, urls, teams)
+                    return 'Job applied!'
+                }
             } catch (error) {
                 throw new LogicError(error.message)
             }
