@@ -19,7 +19,6 @@ const logic = {
 
         return (async () => {
             try {
-                debugger
                 if (this.__test__) {
                     return 'This is just a test!'
                 } else {
