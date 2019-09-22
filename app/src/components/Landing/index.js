@@ -1,10 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './index.sass'
+import avatar from '../../assets/avatar.jpg'
 
 function Landing() {
     return <section className="card">
-        <img className="card__img" src="https://media.licdn.com/dms/image/C4D03AQFwecvwI_adMA/profile-displayphoto-shrink_200_200/0?e=1566432000&v=beta&t=QMJqk8T-xfQXuIeAPUzo5tlQmHrYC0to4VN2gsY0lCw"/>
+        <img className="card__img" src={avatar}/>
         <div className="card__detail">
             <h1 className="card__title">Miguel Angel Zapatero</h1>
             <h3 className="card__subtitle">Fullstack Web Developer</h3>
