@@ -5,6 +5,14 @@ import { LogicError } from '../common/errors'
 const logic = {
     __test__: true,
 
+    set __mode__(test) {
+        this.__test__ = test 
+    },
+
+    get __mode__() {
+        return this.__test__
+    },
+
     applyToJob(name, email, about, urls, teams) {
         validate.arguments([
             { name: 'name', value: name, type: String, notEmpty: true },
@@ -19,7 +27,7 @@ const logic = {
 
         return (async () => {
             try {
-                if (this.__test__) {
+                if (this.__mode__) {
                     return 'This is just a test!'
                 } else {
                     await apiJobs.applyToJob(name, email, about, urls, teams)
